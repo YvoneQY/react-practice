@@ -1,0 +1,29 @@
+
+.login{
+    height: 100vh;
+    background: url('../../sources/images/bg.jpg') center center no-repeat;
+    background-size: 100% 100%;
+    display: flex;
+    align-items: center;
+    .form-wrap{
+        width: 600px;
+        margin: 0 auto;
+        background:white;
+        padding: 20px;
+        
+    }
+    .form-header{
+        line-height: 56px;
+        height: 56px;
+        .column{
+            float: left;
+            font-size: 16px; 
+        }
+        span{
+            float: right;
+            font-size: 12px;
+            opacity: .3;
+        }
+    }
+}
+
