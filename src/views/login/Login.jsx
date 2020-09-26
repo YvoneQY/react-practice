@@ -2,7 +2,12 @@
 
 import React, { Component } from 'react'
 import { Col, Row, Form, Input, Button, Checkbox } from 'antd';
-import './index.scss'
+import {
+    UserOutlined,
+    KeyOutlined
+
+} from '@ant-design/icons';
+
 
 class Login extends Component {
 
@@ -24,8 +29,8 @@ class Login extends Component {
             <div>
                 <h2>用户登录</h2>
                 <div className="form-header">
-                    <h4 className="column"  onClick={this.toggleForm}>登录</h4>
-                    <span  onClick={this.toggleForm}>账号注册</span>
+                    <h4 className="column" onClick={this.toggleForm}>登录</h4>
+                    <span onClick={this.toggleForm}>账号注册</span>
                 </div>
                 <div className="form-content">
                     <Form
@@ -38,7 +43,7 @@ class Login extends Component {
                             name="username"
                             rules={[{ required: true, message: '请输入用户名!' }]}
                         >
-                            <Input />
+                            <Input prefix={<UserOutlined />} placeholder="用户名" />
                         </Form.Item>
 
                         <Form.Item
@@ -46,7 +51,7 @@ class Login extends Component {
                             name="password"
                             rules={[{ required: true, message: '请输入密码!' }]}
                         >
-                            <Input.Password />
+                            <Input.Password prefix={<KeyOutlined />} placeholder="密码" />
                         </Form.Item>
 
                         <Form.Item

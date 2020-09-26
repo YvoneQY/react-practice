@@ -5,6 +5,11 @@
     background-size: 100% 100%;
     display: flex;
     align-items: center;
+    Form{
+        &>div{
+            width: 100%;
+        }
+    }
     .form-wrap{
         width: 600px;
         margin: 0 auto;

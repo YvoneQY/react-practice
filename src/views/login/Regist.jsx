@@ -2,7 +2,6 @@
 
 import React, { Component } from 'react'
 import { Col, Row, Form, Input, Button, Checkbox } from 'antd';
-import './index.scss'
 
 class Regist extends Component {
 
@@ -23,7 +22,7 @@ class Regist extends Component {
             <div>
                 <h2>用户注册</h2>
                 <div className="form-header">
-                    <h4 className="column" onClick={this.toggleForm}>账号注册111</h4>
+                    <h4 className="column" onClick={this.toggleForm}>账号注册</h4>
                     <span>登录</span>
                 </div>
                 <div className="form-content">
