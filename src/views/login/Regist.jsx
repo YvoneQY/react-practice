@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react'
 import { Col, Row, Form, Input, Button, Checkbox } from 'antd';
+// import {validate_password} from '../../utils/validate'
+// import {LoginIn} from '../../api/account'
 
 class Regist extends Component {
 
@@ -50,11 +52,26 @@ class Regist extends Component {
                         <Form.Item
                             label="确认密码"
                             name="passwordCF"
-                            rules={[{ required: true, message: '请输入确认密码!' }]}
+                            rules={[
+                                { required: true, message: '请输入确认密码!' },
+                                {min:6,message:"不能小于6"},
+                                {max:20,message:""}
+                            
+                            ]}
                         >
                             <Input.Password />
                         </Form.Item>
 
+                        <Form.Item
+                            label="邮箱"
+                            name="email"
+                            rules={[
+                                { required: true, message: '请输入用户名!' },
+                                {type:'email',message:'邮箱格式错误'}
+                            ]}
+                        >
+                            <Input placeholder="email" />
+                        </Form.Item>
                         <Form.Item
                             label="验证码"
                             name="code"

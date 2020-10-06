@@ -8,21 +8,59 @@ import {
 
 } from '@ant-design/icons';
 
-
+import {LoginIn,GetCode} from '../../api/account.js'
 class Login extends Component {
 
     constructor() {
         super();
-        this.state = {}
+        this.state = {
+            username:""
+        }
 
     }
+
+    inputChange=(e)=>{
+        this.setState({
+            username:e.target.value
+        })
+    }
+
     onFinish = values => {
         console.log('Success:', values);
+        LoginIn().then(res=>{
+            console.log(res)
+        }).catch(error=>{
+            console.log(error)
+        })
     };
+//获取验证码
+    getCode=()=>{
+        const data={
+            username:this.state.username,
+            module:"login"
+        }
+        GetCode(data).then(res=>{
+            console.log(res)
+        }).catch(error=>{
+            console.log(error)
+        })
+    }
 
     toggleForm = () => {
         this.props.switchForm("regist")
+        let data={
+            username:'1111111@qq.com',
+            password:'5454544',
+            code:'11111'
+        }
+        LoginIn(data).then(res=>{
+            console.log(res)
+        }).catch(error=>{
+            console.log(error)
+        })
     }
+
+
 
     render() {
         return (
@@ -41,9 +79,12 @@ class Login extends Component {
                         <Form.Item
                             label="Username"
                             name="username"
-                            rules={[{ required: true, message: '请输入用户名!' }]}
+                            rules={[
+                                { required: true, message: '请输入用户名!' },
+                                
+                            ]}
                         >
-                            <Input prefix={<UserOutlined />} placeholder="用户名" />
+                            <Input onClick={this.inputChange.bind(this)} value={this.state.username} prefix={<UserOutlined />} placeholder="用户名" />
                         </Form.Item>
 
                         <Form.Item
