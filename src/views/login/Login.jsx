@@ -7,7 +7,7 @@ import {
     KeyOutlined
 
 } from '@ant-design/icons';
-
+import{withRouter}from 'react-router-dom'
 import {LoginIn,GetCode} from '../../api/account.js'
 class Login extends Component {
 
@@ -27,6 +27,7 @@ class Login extends Component {
 
     onFinish = values => {
         console.log('Success:', values);
+        this.props.history.push('/home')
         LoginIn().then(res=>{
             console.log(res)
         }).catch(error=>{
@@ -131,5 +132,5 @@ class Login extends Component {
     }
 }
 
-export default Login;
+export default withRouter(Login);
 
